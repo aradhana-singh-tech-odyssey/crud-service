@@ -13,13 +13,15 @@ router.delete('/:id', authenticateToken, patientController.delete);
 // Your existing routes
 router.get('/items', authenticateToken, (req, res) => {
     // Only logged-in users will reach here
-    console.log(req.user);
+    console.log("User get: ", req.user);
+    console.log("User get: ", req.user.userId);
     res.json({ message: `User ID: ${req.user.userId}` });
 });
 
 router.post('/items', authenticateToken, async (req, res) => {
     // Create logic here
-    console.log(req.user);
+    console.log("User Create: ",req.user);
+    console.log("User Create: ",res.json(req.user.userId));
     res.json({ message: `User ID: ${req.user.userId}` });
 });
 
